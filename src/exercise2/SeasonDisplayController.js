@@ -41,8 +41,6 @@ class SeasonDisplayController extends Component {
   render(){
 
     const {
-      lat,
-      long,
       errorMessage,
       errorMessageCode
     } = this.state
