@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SeasonDisplay from './exercise2/SeasonDisplay'
+import SeasonDisplayC from './exercise2/SeasonDisplayC'
 // import Components from './exercise1/Components'
 
 const Root = () => {
   return (
-    <SeasonDisplay />
+    <SeasonDisplayC />
   )
 }
 
