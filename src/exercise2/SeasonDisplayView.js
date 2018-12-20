@@ -7,11 +7,9 @@ const SeasonDisplayView = props => {
   return(
     <div>
       <h4>{text}</h4>
-     
       <p>{iconName}</p>
     </div>
-  )
-      
+  )      
 }
 
 export default SeasonDisplayView
