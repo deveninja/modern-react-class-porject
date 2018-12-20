@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import SeasonDisplayView from './SeasonDisplayView';
+import helper from './functions';
+import data from './data'
 
 class SeasonDisplayController extends Component {
   constructor(props){
@@ -18,31 +20,16 @@ class SeasonDisplayController extends Component {
       position => this.setState({lat: position.coords.latitude, long: position.coords.longitude}),
       err => this.setState({errorMessage: err.message, errorMessageCode: err.code})
     )
-    const getSeason = (lat, month) => {
-      if(month > 2 && month < 9){
-        this.setState({
-          displaySeason: lat > 0 ? 'summer' : 'winter'
-        })
-      } else {
-        this.setState({
-          displaySeason: lat > 0 ? 'winter' : 'summer'
-        })
-      }
-    }
-
-    getSeason(this.state.lat, new Date().getMonth())
-   
-  }
-
-  componentDidUpdate(){
-
+    
+    this.setState({
+      displaySeason: helper.getSeason(this.state.lat, new Date().getMonth())
+    })
+  
   }
 
   render(){
 
     const {
-      lat,
-      long,
       errorMessage,
       errorMessageCode
     } = this.state
@@ -60,7 +47,11 @@ class SeasonDisplayController extends Component {
     if (!this.state.errorMessage && this.state.lat) {
       return(
         <div>
-          <SeasonDisplayView displaySeason={this.state.displaySeason}/>
+          <SeasonDisplayView 
+            displaySeason={this.state.displaySeason}
+            seasonConfig={this.seasonConfig}
+            data={data}
+          />
         </div>
       )
     }
