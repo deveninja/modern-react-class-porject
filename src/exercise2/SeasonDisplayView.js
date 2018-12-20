@@ -1,13 +1,15 @@
 import React from 'react'
 
 const SeasonDisplayView = props => {
+
+  const {text, iconName} = props.data.seasonConfig[props.displaySeason]
   
   return(
     <div>
-      {props.displaySeason === 'winter' ? 'Wow! katugnaw ba!' : 'OMG! ka init, I want an Ice Cream'}
+      <h4>{text}</h4>
+      <p>{iconName}</p>
     </div>
-  )
-      
+  )      
 }
 
 export default SeasonDisplayView

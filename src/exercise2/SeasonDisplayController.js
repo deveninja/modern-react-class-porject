@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import SeasonDisplayView from './SeasonDisplayView';
+import helper from './functions';
+import data from './data'
+import Loader from './Loader';
 
 class SeasonDisplayController extends Component {
   constructor(props){
@@ -17,34 +20,24 @@ class SeasonDisplayController extends Component {
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({lat: position.coords.latitude, long: position.coords.longitude}),
       err => this.setState({errorMessage: err.message, errorMessageCode: err.code})
-    )
-    const getSeason = (lat, month) => {
-      if(month > 2 && month < 9){
-        this.setState({
-          displaySeason: lat > 0 ? 'summer' : 'winter'
-        })
-      } else {
-        this.setState({
-          displaySeason: lat > 0 ? 'winter' : 'summer'
-        })
-      }
-    }
+    )    
 
-    getSeason(this.state.lat, new Date().getMonth())
-   
-  }
-
-  componentDidUpdate(){
+     // After getting the current location, identify if the season is Summer or Winter
+    // by calculating the latitude and the current month
+    this.setState({
+      displaySeason: helper.getSeason(this.state.lat, new Date().getMonth())
+    })
 
   }
 
   render(){
-
+    // console.log(this.state.lat)
     const {
       errorMessage,
       errorMessageCode
     } = this.state
 
+    // Renders if there is an error or no latitude data fetched
     if (this.state.errorMessage && !this.state.lat) {
       console.log('Reason: ', errorMessage)
       console.log('Error Code: ', errorMessageCode)
@@ -55,19 +48,21 @@ class SeasonDisplayController extends Component {
       )
     }
 
+    // Renders if everything is going according to program logic
     if (!this.state.errorMessage && this.state.lat) {
       return(
         <div>
-          <SeasonDisplayView displaySeason={this.state.displaySeason}/>
+          <SeasonDisplayView 
+            displaySeason={this.state.displaySeason}
+            seasonConfig={this.seasonConfig}
+            data={data}
+          />
         </div>
       )
     }
 
-    return(      
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    )
+    // Renders during when client is asked for geo location permission
+    return <Loader message="Please accept location request" />
 
   }
 }
