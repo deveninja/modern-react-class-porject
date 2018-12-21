@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import ImageCard from './ImageCard';
 
-class ImageList extends Component {
-  render() {
+const ImageList = (props) => {
+  const imageGrid = props.images.map( image => {
     return (
-      <div>
-        
-      </div>
+      <ImageCard key={image.id} image={image} />
     )
-  }
+  })
+  return (
+    <div className="image-grid">
+      {imageGrid}
+    </div>
+  )
 }
 
 export default ImageList
