@@ -30,8 +30,8 @@ class SeasonDisplayController extends Component {
 
   }
 
-  render(){
-    // console.log(this.state.lat)
+  renderContent = () => {
+    
     const {
       errorMessage,
       errorMessageCode
@@ -62,8 +62,15 @@ class SeasonDisplayController extends Component {
     }
 
     // Renders during when client is asked for geo location permission
-    return <Loader message="Please accept location request" />
+    return <Loader message="Please accept location request to properly use the app" />
+  }
 
+  render(){
+    return (
+      <div className="container">
+        {this.renderContent()}
+      </div>
+    )
   }
 }
 
