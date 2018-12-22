@@ -6,8 +6,7 @@ class ImageCard extends Component {
     super(props)
     this.imageRef = React.createRef()
     this.state = {
-      spans: 0,
-      variance: 0
+      spans: 0
     }
   }
 
@@ -17,9 +16,8 @@ class ImageCard extends Component {
 
   setSpans = () => {
     const height = this.imageRef.current.clientHeight
-    const variance = (height % 10)
     const spans = Math.ceil(height / 5) + 1
-    this.setState({spans: spans, variance: variance})
+    this.setState({spans})
   }
 
   render() {
