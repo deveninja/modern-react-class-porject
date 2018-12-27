@@ -1,24 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import Video from './exercise4/components/Video';
-// import SeasonDisplay from './exercise2/SeasonDisplayController'
-// import Components from './exercise1/Components'
-// import './exercise2/app.css'
-// import Car from './exercise3/Car';
-import store from './exercise5/store'
 import { Provider } from 'react-redux'
-import PostList from './exercise5/components/PostList';
+import { BrowserRouter } from 'react-router-dom'
 
-const Root = () => {
-  return (
-    <div className="ui container">
-      <PostList />
-    </div>
-  )
-}
+import store from './store'
+import App from './App';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Root />
-  </Provider>, 
-document.getElementById('root'))
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.querySelector('#root')
+)
