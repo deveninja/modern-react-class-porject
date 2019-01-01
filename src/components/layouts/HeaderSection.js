@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 
+
 class HeaderSection extends Component {
   state = {
-    currentActiveMenuItem: null
+    currentActiveMenuItem: null,
+    isAuth: false
   }
 
   isLoggedIn() {
-    if(1 === 2){ 
-      return <Link to="/logout" className="item">Logout</Link>
+    if(this.state.isAuth){ 
+      return <Link to="/logout" className="item" onClick={() => {this.setState({isAuth: false})}}>Logout</Link>
     } else {
-      return <Link to="/login" className="item">Login</Link>
+      return <Link to="/login" className="item" onClick={() => {this.setState({isAuth: true})}}>Login</Link>
     }
   }
   
@@ -20,7 +22,7 @@ class HeaderSection extends Component {
     return (
       <div className="ui inverted pointing menu">
         <Link to="/" className="item">
-          Streamy
+          Stream App
         </Link>
         <div className="right menu">
           <Link to="/stream" className="item">
