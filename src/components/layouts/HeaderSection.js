@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import GoogleAuth from '../GoogleAuth';
 
 
 
@@ -28,7 +29,8 @@ class HeaderSection extends Component {
           <Link to="/stream" className="item">
             Stream List
           </Link>
-          {this.isLoggedIn()}
+          {/* {this.isLoggedIn()} */}
+          <GoogleAuth />
         </div>
       </div>
     )
