@@ -21,15 +21,13 @@ class StreamCreate extends Component {
               }}>
             </div>
         </div>
-
       )
     }
 
     return (
       <div className="Field">
         <label>{formProps.label}</label>
-        <input {...formProps.input} />
-        
+        <input {...formProps.input} />      
       </div>
     )
   }
