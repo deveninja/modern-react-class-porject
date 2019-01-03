@@ -6,7 +6,7 @@ import FooterSection from './components/layouts/FooterSection'
 
 const App = () => {
   return (
-    <div className="ui container">
+    <div className="" style={{width: '90%', margin: '0 auto'}}>
       <HeaderSection />
       <MainSection />
       <FooterSection />
