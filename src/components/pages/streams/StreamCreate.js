@@ -15,8 +15,9 @@ class StreamCreate extends Component {
               height: '300px', 
               marginTop: '1rem', 
               backgroundImage: `url(${formProps.input.value})`, 
-              backgroundSize: 'cover', 
+              backgroundSize: 'contain', 
               backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat',
               borderRadius: '4px'
               }}>
             </div>

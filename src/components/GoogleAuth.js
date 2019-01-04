@@ -18,6 +18,7 @@ class GoogleAuth extends Component {
         this.onAuthChange(this.Auth.isSignedIn.get())
         this.Auth.isSignedIn.listen(this.onAuthChange)
       })
+      .catch( err => console.log(err))
     })
   }
 
