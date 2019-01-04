@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 class StreamCreate extends Component {
 
-  renderInputText(formProps) {
+  renderInputText = (formProps) => {
     if(formProps.input.name === 'img-url'){
       return (
         <div className="Field">
@@ -42,13 +42,17 @@ class StreamCreate extends Component {
     )
   }
 
+  renderRouterProps() {
+
+  }
+
   render() {
     return (
       <div>
         <div className="ui two column stackable grid">
           <div className="column">
             <div className="ui segment">
-              <form action="" className="ui form">
+              <form onSubmit={ e => {e.preventDefault()} } className="ui form">
                 <Field name="title" component={this.renderInputText} label="Enter title" />
                 <br/>
                 <Field name="description" component={this.renderTextArea} label="Describe your stream" />
@@ -57,7 +61,7 @@ class StreamCreate extends Component {
           </div>
           <div className="column">
             <div className="ui segment">
-              <form action="" className="ui form">
+              <form onSubmit={ e => {e.preventDefault()} } className="ui form">
                   <Field 
                     name="img-url" 
                     component={this.renderInputText} 
@@ -70,7 +74,7 @@ class StreamCreate extends Component {
         <br/>
         <div className="ui buttons">
           <button className="ui positive button">Save</button>
-          <div className="or"></div>
+          {/* <div className="or"></div> */}
           <button className="ui negative button">Cancel</button>
         </div>
       </div>

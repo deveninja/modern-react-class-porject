@@ -1,3 +1,5 @@
+export default menu
+
 const menu = [
   {home: {
     'label': 'Home',
@@ -10,5 +12,3 @@ const menu = [
     icon: ''
   }}
 ]
-
-export default menu
