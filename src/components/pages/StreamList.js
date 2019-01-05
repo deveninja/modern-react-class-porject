@@ -42,11 +42,7 @@ const StreamList = ({ match }) => {
   return (
     <div>
       <h3 
-        style={{
-            height: '20px !important',
-            color: 'red !important',
-            fontWeight: 'bolder'
-        }}>
+        style={stylgin}>
         Stream List
       </h3>
       <List match={match} />
@@ -62,6 +58,12 @@ const StreamList = ({ match }) => {
   )
 }
 
+const stylgin = {
+  height: '20px !important',
+  color: 'red !important',
+  fontWeight: '100',
+  fontSize: '20px'
+}
 
 
 export default StreamList
