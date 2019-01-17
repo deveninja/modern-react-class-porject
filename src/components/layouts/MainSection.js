@@ -11,6 +11,7 @@ import StreamList from '../pages/StreamList'
 import HomePage from '../pages/HomePage'
 import Logout from '../pages/Logout'
 import Login from '../pages/Login'
+import Graphs from '../pages/charts/Graphs';
 
 class MainSection extends Component {
   render() {
@@ -20,6 +21,7 @@ class MainSection extends Component {
        <Route path="/stream" component={StreamList} />         
        <Route path="/logout" component={Logout} />         
        <Route path="/login" component={Login} />         
+       <Route path="/graphs" component={Graphs} />         
       </div>
     )
   }

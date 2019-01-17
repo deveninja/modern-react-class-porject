@@ -11,7 +11,6 @@ class StreamCreate extends Component {
           <label>{label}</label>
           <input {...input} />
           <div className="ui error">{meta.error}</div>
-
             <div style={{
               width: '100%',
               height: '300px', 

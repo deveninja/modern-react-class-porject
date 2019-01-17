@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">  
+<?xml version="1.0" encoding="iso-8859-1"?>  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">  
+    <head>  
+        <title>Bare bones 3 column CSS layout</title>  
+        <style type="text/css">  
+            #leftpanel {  
+                position: absolute;  
+                top: 140px; /* resize these bits to liking */  
+                left: 0;  
+                width: 200px; /* works best with fixed   
+                width right - left divs*/  
+            }      
+  
+            #rightpanel {  
+                position: absolute;  
+                top: 140px; /* resize these bits to liking */  
+                right: 0;  
+                width: 200px; /* works best with fixed   
+                width right - left divs*/  
+            }  
+  
+            #content {  
+                position: absolute;  
+                top: 140px;  
+                padding-left: 220px; /* 20px to play with */  
+                padding-right: 220px; /* 20px to play with */  
+                }  
+            </style>  
+    </head>  
+    <body>  
+        <h1>Bare bones 3 column CSS layout</h1>  
+  
+        <!-- Content here -->  
+        <div id="content">  
+        <p>You can put your content here, under the space   
+        for a header, or you can re-arrange the   
+        divs in the html to put your right or left column first.</p>  
+        </div>  
+  
+        <!-- Right column here -->  
+        <div id="rightpanel">  
+        <p>This is a good place to pop nice optimized   
+        text into, especially if your #content div   
+         is full of images and little text. I like to   
+        put an 'editors note' here: Just an excuse to   
+        squeeze optimized copy into the html flow without   
+        bothering the user ;-)</p>  
+        </div>  
+  
+        <!-- Left navigation etc -->  
+        <div id="leftpanel">  
+        <p>Links, come last, presuming your 'header' has   
+        a 'main sections' navigation with regular text links   
+        this is just fine for SE's and magic for   
+        optimization.</p>  
+        </div>  
+    </body>  
+</html>
