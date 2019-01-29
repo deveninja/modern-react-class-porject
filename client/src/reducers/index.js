@@ -3,9 +3,11 @@ import { reducer as formReducer } from 'redux-form'
 
 import videoReducer from './videoReducer'
 import authReducer from './authReducer'
+import streamReducer from './streamReducer'
 
 export default combineReducers({
   videos: videoReducer,
   auth: authReducer,
-  form: formReducer
+  form: formReducer,
+  streams: streamReducer
 })

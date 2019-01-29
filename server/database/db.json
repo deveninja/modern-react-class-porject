@@ -1,0 +1,65 @@
+{
+  "streams": [
+    {
+      "title": "123",
+      "description": "124\n\n",
+      "imgUrl": "23124",
+      "id": 1
+    },
+    {
+      "title": "123",
+      "description": "124\n\n",
+      "imgUrl": "23124",
+      "id": 2
+    },
+    {
+      "title": "123",
+      "description": "124",
+      "imgUrl": "124124124124",
+      "id": 3
+    },
+    {
+      "title": "123",
+      "description": "124",
+      "imgUrl": "124124124124",
+      "id": 4
+    },
+    {
+      "title": "Sample Title",
+      "description": "Sample description of the stream item",
+      "imgUrl": "https://images.pexels.com/photos/1317844/pexels-photo-1317844.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
+    },
+    {
+      "title": "Another Stream Title",
+      "description": "Another Stream description",
+      "imgUrl": "https://images.pexels.com/photos/1831789/pexels-photo-1831789.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 6
+    },
+    {
+      "title": "Here we go again",
+      "description": "Hahaha lorem ipsum sheng tao yuan",
+      "imgUrl": "https://images.pexels.com/photos/1831789/pexels-photo-1831789.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 7
+    },
+    {
+      "title": "Another one bites the dust",
+      "description": "Ahahahahha",
+      "img": "https://cdn4.buysellads.net/uu/1/3386/1525189887-61450.png",
+      "id": 8
+    },
+    {
+      "title": "Bob's Stream",
+      "description": "This was made by bob",
+      "img": "https://scontent.fceb2-2.fna.fbcdn.net/v/t1.0-9/51033648_2237355986529594_7855024017881694208_n.jpg?_nc_cat=1&_nc_ht=scontent.fceb2-2.fna&oh=1da67cc4dfb19d2ce828137fb7b403b7&oe=5CBBD978",
+      "id": 9
+    },
+    {
+      "title": "Another Bob's Stream with ID",
+      "description": "Hahaha Finally",
+      "img": "https://scontent.fceb2-2.fna.fbcdn.net/v/t1.0-9/51033648_2237355986529594_7855024017881694208_n.jpg?_nc_cat=1&_nc_ht=scontent.fceb2-2.fna&oh=1da67cc4dfb19d2ce828137fb7b403b7&oe=5CBBD978",
+      "userInfo": "104086414885455611144",
+      "id": 10
+    }
+  ]
+}

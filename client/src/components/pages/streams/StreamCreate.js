@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { createStream } from '../../../actions'
 
 class StreamCreate extends Component {
 
   renderInputText = ({input, label, meta}) => {
-    console.log(meta)
-    if(input.name === 'img-url'){
+    // console.log(meta)
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`
+    if(input.name === 'img'){
       return (
-        <div className="Field">
+        <div className={className}>
           <label>{label}</label>
           <input {...input} />
-          <div className="ui error">{meta.error}</div>
+          { this.renderError(meta) }          
             <div style={{
               width: '100%',
               height: '300px', 
@@ -27,36 +30,46 @@ class StreamCreate extends Component {
     }
 
     return (
-      <div className="Field">
+      <div className={className}>
         <label>{label}</label>
         <input {...input} />      
-        <div className="ui error">{meta.error}</div>
+        { this.renderError(meta) }        
       </div>
     )
   }
 
-  renderTextArea({input, label, meta}) {
+  renderTextArea = ({input, label, meta}) => {
+    // console.log(meta)
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`
     return (
-      <div className="Field">
+      <div className={className}>
         <label>{label}</label>
         <textarea {...input} />
-        <div className="ui error">{meta.error}</div>
+        { this.renderError(meta) }
       </div>
     )
   }
 
   onSubmit = (formValues) => {
-    console.log(formValues)
+    // console.log(formValues)
     // event.preventDefault() @Redux-form handled the prevent default for us
+    this.props.createStream(formValues)
   }
 
-  renderRouterProps() {
-
+  renderError = ({ error, touched }) => {
+    if( touched && error ) {
+      
+      return (
+        <div className="ui error message">{error}</div>
+      )
+    } 
   }
+
+ 
 
   render() {
     return (
-        <form onSubmit={ this.props.handleSubmit(this.onSubmit) } className="ui form">
+        <form onSubmit={ this.props.handleSubmit(this.onSubmit) } className="ui form success error">
           <div className="ui two column stackable grid">
             <div className="column">
               <div className="ui segment">
@@ -71,7 +84,7 @@ class StreamCreate extends Component {
               <div className="ui segment">
                 
                     <Field 
-                      name="img-url" 
+                      name="img" 
                       component={this.renderInputText} 
                       label="Enter image link"  
                     />                
@@ -79,11 +92,13 @@ class StreamCreate extends Component {
               </div>
             </div>
           </div>
+
           
-          <div className="ui buttons">
-            <button className="ui positive button">Save</button>
-            {/* <div className="or"></div> */}
-            <button className="ui negative button">Cancel</button>
+          <div className="ui segment no-border no-shadow">
+            <button className="ui positive button float-left">Add</button>
+          
+         
+            <button className="ui negative button float-right">Cancel</button>
           </div>
         </form>
       
@@ -91,7 +106,7 @@ class StreamCreate extends Component {
   }
 }
 
-const validate = (formValues) => {
+const validate = formValues => {
   const errors = {}
 
   if(!formValues.title) {
@@ -102,12 +117,18 @@ const validate = (formValues) => {
     errors.description = 'You must enter a description'
   }
 
+  if(!formValues.img) {
+    errors.img = 'You must enter a valid link'
+  }
+
   return errors
 }
 
 
-export default reduxForm({
-  form: 'createStream',
-  validate
+const formWrapped = reduxForm({
+  form: 'streamCreate',
+  validate: validate
 })(StreamCreate)
+
+export default connect(null, { createStream })(formWrapped)
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import './app.css'
 
 import HeaderSection from './components/layouts/HeaderSection'
 import MainSection from './components/layouts/MainSection'
