@@ -33,7 +33,7 @@ class Graphs extends Component {
       dataLabels: {
         enabled: true,
         formatter: val => {
-          return val + " votes"
+          return val
         }
       },
     
@@ -53,7 +53,7 @@ class Graphs extends Component {
     },
     series: [
       {
-        name: "",
+        name: `Vote count`,
         data: [
           5,
           6,
@@ -72,6 +72,8 @@ class Graphs extends Component {
   
   }
 
+
+
   render() {
     
     return (
@@ -83,6 +85,7 @@ class Graphs extends Component {
           height='450'
           width='100%'
         />
+        
       </div>
     )
   }
