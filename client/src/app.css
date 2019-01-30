@@ -11,3 +11,7 @@ h6 {
   box-shadow: unset !important;
   box-shadow: none !important;
 }
+
+.ui .inverted .menu {
+  border-radius: none !important;
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {Route, Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -15,10 +15,36 @@ class StreamList extends Component {
     this.props.fetchStreams()
   }
 
+  renderAdminButtons = (stream) => {    
+    if(stream.userInfo === this.props.currentUserInfo) {
+      return (
+        <div className="right floated content">
+          <Link to={`${this.props.match.url}/edit`}><button className="ui button primary">Edit</button></Link>
+          <Link to={`${this.props.match.url}/delete`}><button className="ui button negative">Delete</button></Link>
+        </div>
+      )
+    }
+  }
+
+  renderCreateButton = () => {
+    if(this.props.isSignedIn){
+      return (
+        <Fragment>
+          <Link to={`${this.props.match.url}/create`} className="ui button positive">
+            Create Stream
+          </Link>
+        </Fragment>
+      )
+    }
+  }
+
   renderStreamList = () => {
     return this.props.streams.map(stream => {
       return (
         <div className="item" key={stream.id}>
+        
+          {this.renderAdminButtons(stream)}
+
           <i className="large middle aligned icon cog" />
           <div className="content">
             <span style={{fontWeight: 'bolder', fontSize: '1.1rem'}}>
@@ -42,46 +68,35 @@ class StreamList extends Component {
     return <StreamCreate /> 
   }
 
-  List = () => {
-    return (
-      <div className="ui very relaxed horizontal list">
-        <div className="ui buttons">
-        <Link to={ this.props.match.url + '/create'}><button className="ui positive button">Create</button></Link>
-        <Link to={ this.props.match.url + '/edit'}><button className="ui negative button">Delete</button></Link>
-        <Link to={ this.props.match.url + '/delete'}><button className="ui orange button">Edit</button></Link>
-        </div>
-      </div>
-    )
-  }
 
   render(){
     return (
-      <div>
-        <h1>Stream List</h1>
+      <React.Fragment>
+       
+        <div style={{textAlign: 'left', padding: '0 .5em'}}>
+          <h1>Stream List</h1>
+        </div>
 
-          { this.List() }
-          
-          <div className="ui celled list">
-            { this.renderStreamList() }
-          </div>
+        <div style={{textAlign: 'right', padding: '0 .5em'}}>
+          {this.renderCreateButton()}
+        </div>
         
 
+        <div className="ui celled list">
+          { this.renderStreamList() }
+        </div>
 
-        <Route 
-          path={ this.props.match.url + '/create'} 
-          render={() => this.renderCreatePage()}
-        />
-        <Route path={ this.props.match.url + '/edit'} component={StreamEdit} />
-        <Route path={ this.props.match.url + '/show'} component={StreamShow} />
-        <Route path={ this.props.match.url + '/delete'} component={StreamDelete} />
-      </div>
+      </React.Fragment>
+      
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    streams: Object.values(state.streams)
+    streams: Object.values(state.streams),
+    currentUserInfo: state.auth.userInfo,
+    isSignedIn: state.auth.isSignedIn
   }
 }
 

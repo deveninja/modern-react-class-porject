@@ -51,8 +51,6 @@ class StreamCreate extends Component {
   }
 
   onSubmit = (formValues) => {
-    // console.log(formValues)
-    // event.preventDefault() @Redux-form handled the prevent default for us
     this.props.createStream(formValues)
   }
 
@@ -64,8 +62,6 @@ class StreamCreate extends Component {
       )
     } 
   }
-
- 
 
   render() {
     return (
@@ -96,9 +92,7 @@ class StreamCreate extends Component {
           
           <div className="ui segment no-border no-shadow">
             <button className="ui positive button float-left">Add</button>
-          
-         
-            <button className="ui negative button float-right">Cancel</button>
+            {/* <button className="ui negative button float-right">Cancel</button> */}
           </div>
         </form>
       
