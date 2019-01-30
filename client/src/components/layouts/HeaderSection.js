@@ -21,7 +21,7 @@ class HeaderSection extends Component {
 
   render() {
     return (
-      <div className="ui inverted pointing menu">
+      <div className="ui inverted pointing menu no-border">
         <Link to="/" className="item">
           Stream App
         </Link>

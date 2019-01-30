@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Chart from 'react-apexcharts'
+import { connect } from 'react-redux'
 
 class Graphs extends Component {
 
@@ -14,7 +15,12 @@ class Graphs extends Component {
         categories: [
           "Lake Danao",
           "Taal lake",
-          "Lake Commerce"
+          "Lake Commerce",
+          "Lake Lake",
+          "Lake liit",
+          "Lake medium",
+          "Lake large"
+         
         ]
       },
 
@@ -31,7 +37,7 @@ class Graphs extends Component {
       },
 
       dataLabels: {
-        enabled: true,
+        enabled: false,
         formatter: val => {
           return val
         }
@@ -53,11 +59,15 @@ class Graphs extends Component {
     },
     series: [
       {
-        name: `Vote count`,
+        name: "Votes",
         data: [
           5,
           6,
-          2
+          2,
+          7,
+          12,
+          4,
+          7
         ]
       }
     ]
@@ -67,9 +77,12 @@ class Graphs extends Component {
     
     margin: '70px auto',
     overflow: 'hidden',
-    width: '80%',
-    textAlign: 'center' 
-  
+    width: '50%',
+    textAlign: 'center'
+  }
+  componentDidMount() {
+    console.log(this.props.data)
+
   }
 
 
@@ -82,7 +95,7 @@ class Graphs extends Component {
           options={this.state.options}
           series={this.state.series}
           type='bar'
-          height='450'
+          height='400'
           width='100%'
         />
         
@@ -91,4 +104,10 @@ class Graphs extends Component {
   }
 }
 
-export default Graphs
+const matpStateToProps = (state) => {
+  return {
+    data: state.streams
+  }
+}
+
+export default connect(matpStateToProps, null)(Graphs)

@@ -1,0 +1,29 @@
+h6 {
+  color: #4026d4;
+}
+
+.no-border {
+  /* border: unset !important; */
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.sticky-bottom {
+  position: absolute !important;
+  bottom: 0;
+  width: 100%;
+}
+
+.no-shadow {
+  box-shadow: unset !important;
+  box-shadow: none !important;
+}
+
+.footer, .footer a.section, .footer i {
+  color: #fff !important;
+ 
+}
+
+.footer {
+  background-color: rgb(85, 85, 85) !important;
+}

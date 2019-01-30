@@ -6,8 +6,12 @@
 
 import jsonPlaceholder from "./jsonPlaceholder"
 import unsplash from "./unsplash"
+import streams from "./streams"
 
-export default api = {
+const api = {
   jsonPlaceholder: jsonPlaceholder,
-  unsplash: unsplash
+  unsplash: unsplash,
+  streams: streams
 }
+
+export default api
