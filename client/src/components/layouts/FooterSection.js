@@ -23,7 +23,7 @@ class FooterSection extends Component {
        )
         
        
-      
+       
     }
   }
   
